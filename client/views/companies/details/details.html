@@ -1,0 +1,104 @@
+<template name="CompaniesDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> CompaniesDetailsDetailsForm}}
+	</div>
+</template>
+
+<template name="CompaniesDetailsDetailsForm">
+	<div id="companies-details-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}		
+		
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name" class="col-sm-3 control-label">
+					Name
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{company.name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-phone">
+				<label for="phone" class="col-sm-3 control-label">
+					Phone
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{company.phone}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-email">
+				<label for="email" class="col-sm-3 control-label">
+					E-mail
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{company.email}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-note">
+				<label for="note" class="col-sm-3 control-label">
+					Note
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{company.note}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-contact-id">
+				<label for="contactId" class="col-sm-3 control-label">
+					contact
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{company.contactId}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-active">
+				<label for="active" class="col-sm-3 control-label">
+					Active
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static">
+						{{booleanToYesNo company.active}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

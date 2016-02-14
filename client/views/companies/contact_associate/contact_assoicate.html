@@ -1,0 +1,60 @@
+<template name="ContactAssociate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> ContactAssociateViewTable}}
+	</div>
+</template>
+
+
+<template name="ContactAssociateViewTable">
+	<table class="table table-striped">
+		<thead >
+			<tr >
+				<th data-sort="name">
+					Name
+				</th>
+				<th data-sort="phone">
+					Phone
+				</th>
+				<th data-sort="email">
+					E-mail
+				</th>
+				<th  data-sort="note">
+					Note
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each tableItemsCA}} {{> ContactsViewTableItemsCA}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ContactsViewTableItemsCA">
+	<tr>
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{phone}}
+		</td>
+		<td>
+			{{email}}
+		</td>
+		<td>
+			{{note}}
+		</td>
+		
+	</tr>
+</template>
