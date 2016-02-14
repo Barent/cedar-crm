@@ -1,11 +1,13 @@
 var pageSession = new ReactiveDict();
 
-Template.ContactAssociate.rendered = function() {
+Template.ContactAssociateViewTable.rendered = function() {
 	
 };
 
-Template.ContactAssociate.events({
-	
+Template.ContactAssociateViewTable.events({
+	"click #saveContactToCompany": function(e, t){
+		alert(tempCompanyData.name);
+	}
 });
 
 Template.ContactAssociateViewTable.helpers({

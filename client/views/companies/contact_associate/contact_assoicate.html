@@ -13,18 +13,18 @@
 
 <template name="ContactAssociateViewTable">
 	<table class="table table-striped">
-		<thead >
-			<tr >
-				<th data-sort="name">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th data-sort="name" >
 					Name
 				</th>
-				<th data-sort="phone">
+				<th data-sort="phone" >
 					Phone
 				</th>
 				<th data-sort="email">
 					E-mail
 				</th>
-				<th  data-sort="note">
+				<th data-sort="note" >
 					Note
 				</th>
 				<th>
@@ -39,6 +39,7 @@
 			{{#each tableItemsCA}} {{> ContactsViewTableItemsCA}} {{/each}}
 		</tbody>
 	</table>
+	<button id="saveContactToCompany" class="btn btn-primary">Save</button>
 </template>
 
 <template name="ContactsViewTableItemsCA">

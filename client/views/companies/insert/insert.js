@@ -1,5 +1,7 @@
 var pageSession = new ReactiveDict();
 
+
+
 Template.CompaniesInsert.rendered = function() {
 	
 };
@@ -110,8 +112,46 @@ Template.CompaniesInsertInsertForm.events({
 
 		/*BACK_REDIRECT*/
 	},
-	"click #contactLookup": function(e, t){
-		Router.go("companies.contact_associate", {});
+	"click #contactLookup": function(e, t){	
+
+		pageSession.set("companiesInsertInsertFormInfoMessage", "");
+		pageSession.set("companiesInsertInsertFormErrorMessage", "");
+
+		var self = this;
+		
+		function submitActionContactLookUp(msg) {
+			var companiesInsertInsertFormMode = "insert";
+			if(!t.find("#form-cancel-button")) {
+				switch(companiesInsertInsertFormMode) {
+					case "insert": {
+						$(e.target)[0].reset();
+					}; break;
+
+					case "update": {
+						var message = msg || "Saved.";
+						pageSession.set("companiesInsertInsertFormInfoMessage", message);
+					}; break;
+				}
+			}
+			alert(newId);
+			Router.go("companies.contact_associate", {});
+		}
+
+		validateForm(
+			$(e.target),
+			function(fieldName, fieldValue) {
+
+			},
+			function(msg) {
+
+			},
+			function(values) {
+				
+
+				newId = Companies.insert(values, function(e) { if(e) errorAction(e); else submitActionContactLookUp(); });
+			}
+		);
+		//Router.go("companies.contact_associate", {});
 	}
 
 	
