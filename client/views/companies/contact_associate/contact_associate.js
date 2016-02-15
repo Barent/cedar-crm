@@ -6,7 +6,9 @@ Template.ContactAssociateViewTable.rendered = function() {
 
 Template.ContactAssociateViewTable.events({
 	"click #saveContactToCompany": function(e, t){
-		alert(tempCompanyData.name);
+		//var currentSessionAccountData = Session.get("formDataAccount");
+		//alert(currentSessionAccountData.name);
+		Router.go("companies.insert", {});
 	}
 });
 
@@ -62,3 +64,16 @@ var ContactsViewItemsCA = function(cursor) {
 
 	return filtered;
 };
+
+Template.ContactsViewTableItemsCA.events({
+	"click td": function(e, t) {
+		e.preventDefault();
+		//user to get the contact Id contactId: this._id
+		var contactIdForAssociate = {contactId: this._id};
+		//alert(contactIdForAssociate.contactId);
+		//Router.go("contacts.details", {contactId: this._id});
+		Session.set("contactForAssociate", contactIdForAssociate);
+		return false;
+	}
+	
+});
