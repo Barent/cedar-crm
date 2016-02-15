@@ -3,6 +3,15 @@ var pageSession = new ReactiveDict();
 
 
 Template.CompaniesInsert.rendered = function() {
+	var selectedContact = Session.get("contactForAssociate")
+	var previousSelection = Session.get("formDataAccount")
+	if(selectedContact != null){
+		//alert(selectedContactName.name);
+		$("[name='name']").val(previousSelection.name)
+		$("[name='phone']").val(previousSelection.phone)
+		$("[name='email']").val(previousSelection.email)
+		$("[name='contactId']").val(selectedContact.name + ", " + selectedContact.contactId)
+	}
 	
 };
 
@@ -48,6 +57,8 @@ Template.CompaniesInsertInsertForm.rendered = function() {
 
 Template.CompaniesInsertInsertForm.events({
 	"submit": function(e, t) {
+		delete Session.keys["contactForAssociate"];
+		delete Session.keys["formDataAccount"];
 		e.preventDefault();
 		pageSession.set("companiesInsertInsertFormInfoMessage", "");
 		pageSession.set("companiesInsertInsertFormErrorMessage", "");

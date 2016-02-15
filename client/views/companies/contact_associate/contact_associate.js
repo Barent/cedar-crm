@@ -69,7 +69,11 @@ Template.ContactsViewTableItemsCA.events({
 	"click td": function(e, t) {
 		e.preventDefault();
 		//user to get the contact Id contactId: this._id
-		var contactIdForAssociate = {contactId: this._id};
+		var contactIdForAssociate = {
+			contactId: this._id,
+			name: this.name
+			
+		};
 		//alert(contactIdForAssociate.contactId);
 		//Router.go("contacts.details", {contactId: this._id});
 		Session.set("contactForAssociate", contactIdForAssociate);
