@@ -5,7 +5,13 @@ Template.CompaniesDetails.rendered = function() {
 };
 
 Template.CompaniesDetails.events({
-	
+	"click .field-contact-id": function(){
+		var companyLocal = Companies.findOne({_id:this.params.companyId}, {});
+		var contactIdStringForSplit = companyLocal.contactId;
+		var contactIdForRedirect = contactIdStringForSplit.split(", ");
+		//alert(contactIdForRedirect[1]);
+		Router.go("contacts.details", {contactId: contactIdForRedirect[1]})
+	}
 });
 
 Template.CompaniesDetails.helpers({

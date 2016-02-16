@@ -224,6 +224,7 @@ Template.ContactsViewTableItems.rendered = function() {
 Template.ContactsViewTableItems.events({
 	"click td": function(e, t) {
 		e.preventDefault();
+		//alert(this._id);
 		Router.go("contacts.details", {contactId: this._id});
 		return false;
 	},
